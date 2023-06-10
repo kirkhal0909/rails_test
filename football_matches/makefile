@@ -13,3 +13,6 @@ db_init:
 
 console:
 	docker-compose exec app rails console
+
+test:
+	docker-compose exec -e "RAILS_ENV=test" app bundle exec rspec

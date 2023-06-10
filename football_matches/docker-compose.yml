@@ -12,13 +12,12 @@ services:
       - gem_cache:/usr/local/bundle/gems
     env_file: .env
     environment:
-      RAILS_ENV: development #production
+      RAILS_ENV: development
 
   postgres:
     image: postgres:15
     volumes:
       - db_data:/var/lib/postgresql/data
-      #- ./scripts/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_DB: $DATABASE_NAME
       POSTGRES_USER: $DATABASE_USER
