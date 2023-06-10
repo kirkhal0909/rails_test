@@ -10,16 +10,7 @@ RSpec.describe Team, type: :model do
   end
 
   describe '.top_five_players_by' do
-    before do
-      five_players.each_with_index do |player, index|
-        player.player_metrics.first(6 - index).each { |player_metric| player_metric.update(kilometers_run: 11) }
-      end
-    end
-
-    let(:counts) do
-      count = 7
-      five_players.each_with_object({}) { |player, results| results[player.id] = count -= 1 }
-    end
+    include_context 'matches_top_five', true
 
     it 'top five order correct' do
       expect(team1.top_five_players_by(:run_ten_plus).count).to eq(counts)

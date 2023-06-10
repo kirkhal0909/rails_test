@@ -12,8 +12,12 @@ RSpec.describe Player, type: :model do
     it { expect(player.matches.class.name).to include('CollectionProxy') }
   end
 
-  describe '.top_five_by?' do
-    pending 'add specs'
+  describe '.top_five_by' do
+    include_context 'matches_top_five', false
+
+    it 'top five order correct' do
+      expect(Player.top_five_by(:run_ten_plus).count).to eq(counts)
+    end
   end
 
   describe '#factor_present?' do
