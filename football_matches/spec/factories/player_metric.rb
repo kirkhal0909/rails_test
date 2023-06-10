@@ -5,4 +5,11 @@ FactoryBot.define do
     passes_success { rand(0..10) }
     goals { rand(0..2) }
   end
+
+  trait :zero_metrics do
+    kilometers_run { 0.0 }
+    passes { 0 }
+    passes_success { 0 }
+    goals { 0 }
+  end
 end

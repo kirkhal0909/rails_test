@@ -10,4 +10,13 @@ FactoryBot.define do
       end
     end
   end
+
+  trait :with_zero_metrics do
+    player_metrics do
+      players = team1.players + team2.players
+      build_list :player_metric, players.length, :zero_metrics do |player_metric, index|
+        player_metric.player = players[index]
+      end
+    end
+  end
 end
