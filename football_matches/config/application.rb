@@ -32,6 +32,9 @@ module FootballMatches
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
+
+    config.factory_bot.definition_file_paths = ['spec/factories']
+
     config.generators.system_tests = nil
   end
 end
