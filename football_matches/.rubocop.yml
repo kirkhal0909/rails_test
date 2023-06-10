@@ -6,9 +6,12 @@ AllCops:
     - '.git/**/*'
     - 'bin/*'
     - 'db/schema.rb'
+    - 'config/**/*'
   SuggestExtensions: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
+  Enabled: false
+Lint/MissingSuper:
   Enabled: false
