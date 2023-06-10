@@ -9,7 +9,7 @@ class Player < ApplicationRecord
           .where("factors -> ? = 'true'", factor)
           .where(team_id ? 'team_id = ?' : 'true', team_id)
           .group(:id)
-          .order(:id)
+          .order(count: :desc)
           .limit(5)
   end
 
