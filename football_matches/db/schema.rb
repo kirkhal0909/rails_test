@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_392310) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_492310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
-    t.datetime "time_start"
-    t.integer "team1_id"
-    t.integer "team2_id"
+    t.datetime "time_start", null: false
+    t.integer "team1_id", null: false
+    t.integer "team2_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_392310) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "full_name"
+    t.string "full_name", null: false
     t.bigint "team_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_392310) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_teams_on_name", unique: true
