@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      show: true,
+      show: false,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       usd_rate: localStorage.getItem('usd_rate') || 80,
       expires_in: localStorage.getItem('expires_in'),
